@@ -1,0 +1,71 @@
+{% extends 'base.html'%}
+{% block head %}
+<title>kehoe's Agate Shop Reviews</title>
+{% endblock %}
+
+{% block body%}
+<div id="nav-box" class="d-flex" style="z-index: 1; justify-content: space-between; background-color:#ebfbfa; width:100vw; position:fixed">
+    <div id="nav-img" style="width: 350px;">
+        <a href="/"><img class="img-fluid" src="{{url_for('static', filename='images/cover3Resize.png')}}"></a>
+    </div>
+    <div class="nav-list">
+        <ul class="d-flex me-5" style="align-items:end; padding: 0; justify-content: start; list-style: none;height: 45px;">
+            {% if current_user.is_authenticated %}
+            <a class="nav-link" href="/reviews/"><li class="me-3">Reviews</li></a>
+            <a class="nav-link" href="/logout/"><li class="me-3">Logout</li></a>
+            {% else %}
+            <a class="nav-link" href="/#hours"><li class="me-3">Hours</li></a>
+            <a class="nav-link" href="/#about-us"><li class="me-3">About Us</li></a>
+            <a class="nav-link" href="/#contact"><li class="me-3">Contact</li></a>
+            <a class="nav-link" href="/reviews/"><li class="me-3">Reviews</li></a>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+<div id="backup-nav" style="z-index: 1; position: fixed; top: 50px; right:0px; height:27px;">
+    <ul class="d-flex" style="padding: 0; justify-content: start; list-style: none;">
+        {% if current_user.is_authenticated %}
+        <a class="nav-link" href="/reviews/"><li class="me-3">Reviews</li></a>
+        <a class="nav-link" href="/logout/"><li class="me-3">Logout</li></a>
+        {% else %}
+        <a class="nav-link" href="/#hours"><li class="me-3">Hours</li></a>
+        <a class="nav-link" href="/#about-us"><li class="me-3">About Us</li></a>
+        <a class="nav-link" href="/#contact"><li class="me-3">Contact</li></a>
+        <a class="nav-link" href="/reviews/"><li class="me-3">Reviews</li></a>
+        {% endif %}
+    </ul>
+</div>
+
+<div style="min-height: 100vh;">
+<div class="mx-auto text-center" style="margin-top: 100px; margin-bottom: 50px;">
+    <img class="img-fluid" src="{{url_for('static', filename='images/review.png')}}">
+    <h1 class="fs-1">Reviews</h1>
+</div>
+{% for review in reviews %}
+<div class="border mx-auto review my-4 rounded p-3">
+    <h2 class="text-center">{{review.first_name}} {{review.last_name}}</h2>
+    <div class="text-center">
+        {% for i in range(review.star_rating) %}
+        <i class="bi bi-star-fill text-center" style="color: #FFDF00"></i>
+        {% endfor %}
+        {% if review.star_rating < 5 %}
+        {% for i in range(5-review.star_rating) %}
+        <i class="bi bi-star" style="color: #FFDF00"></i>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <hr/>
+    <p class="text-center">{{review.content}}</p>
+    {% if current_user.is_authenticated %}
+    <div class="text-center">
+        <a href="/delete/{{review.id}}/" class="btn btn-primary">Delete</a>
+        <a href="/edit/{{review.id}}/" class="btn btn-primary">Edit</a>
+    </div>
+    {% endif %}
+</div>
+{% endfor %}
+    <div class="text-center mb-3">
+        <a href="/create/" class="btn btn-primary">Leave a review</a>
+    </div>
+</div>
+{% endblock%}

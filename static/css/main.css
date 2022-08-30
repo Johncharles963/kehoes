@@ -1,0 +1,99 @@
+body{
+    background-color: #ebfbfa;
+    font-family: Trebuchet MS, sans-serif;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    padding-bottom: 0;
+}
+.btn{
+    background-color: #ff7f9c;
+    border-color: #ff7f9c;
+}
+.btn:hover{
+    background-color: #7f001c;
+}
+form{
+    margin-top: 100px
+}
+.review{
+    background-color: 	#FBFAF5;
+    width: 40%;
+    box-shadow: 0 0 5px #d4c92a ;
+}
+hr{
+    background-color: #ff7f9c;
+}
+.nav-link{
+    color:   #7f001c;
+}
+.nav-link:hover{
+    color:  #ff7f9c ;
+}
+.contact-link{
+    color:    #c72cd2 ;
+    border-radius: 40px;
+    padding: 20px;
+}
+.contact-link:hover{
+    color:   #7f001c;
+}
+.contact-item{
+    min-height: 170px;
+}
+.contacts{
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+}
+.titles{
+    font-family: Georgia, serif;
+}
+@media (max-width: 767.98px) { 
+    form{
+        margin-top: 130px
+    }
+    .review{
+        width: 60%;
+    }
+    .fancy-line{
+        width: 500px;
+    }
+    .diamond{
+        display:none
+    }
+    .jewelry{
+        width: 400px;
+        border-radius: 50px;
+        margin: 20px 0;
+    }
+    .contact img{
+        width:48px;
+    }
+    .info{
+        background-color: red;
+    }
+    .nav-list{
+        display: none;
+    }
+    #nav-box{
+        height:80px;
+    }
+    .nav-img{
+        top: 500px;
+        position: relative;
+    }
+    .contacts{
+        width: 100%;
+    }
+}
+@media (min-width: 767.99px) {
+    #backup-nav{
+        display: none;
+    }
+    #nav-box{
+        height: 50px;
+    }
+    .contacts{
+        width: 75%;
+    }
+}

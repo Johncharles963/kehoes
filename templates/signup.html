@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+{% block head %}
+<title>kehoe's Agate Shop Reviews</title>
+{% endblock %}
+
+{% block body%}
+<div id="nav-box" class="d-flex" style="z-index: 1; justify-content: space-between; background-color:#ebfbfa; width:100vw; position:fixed">
+    <div id="nav-img" style="width: 350px;">
+        <a href="/"><img class="img-fluid" src="{{url_for('static', filename='images/cover3Resize.png')}}"></a>
+    </div>
+    <div class="nav-list">
+        <ul class="d-flex me-5" style="align-items:end; padding: 0; justify-content: start; list-style: none;height: 45px;">
+            {% if current_user.is_authenticated %}
+            <a class="nav-link" href="/reviews/"><li class="me-3">Reviews</li></a>
+            <a class="nav-link" href="/logout/"><li class="me-3">Logout</li></a>
+            {% else %}
+            <a class="nav-link" href="/#hours"><li class="me-3">Hours</li></a>
+            <a class="nav-link" href="/#about-us"><li class="me-3">About Us</li></a>
+            <a class="nav-link" href="/#contact"><li class="me-3">Contact</li></a>
+            <a class="nav-link" href="/reviews/"><li class="me-3">Reviews</li></a>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+<div id="backup-nav" style="z-index: 1; position: fixed; top: 50px; right:0px; height:27px;">
+    <ul class="d-flex" style="padding: 0; justify-content: start; list-style: none;">
+        {% if current_user.is_authenticated %}
+        <a class="nav-link" href="/reviews/"><li class="me-3">Reviews</li></a>
+        <a class="nav-link" href="/logout/"><li class="me-3">Logout</li></a>
+        {% else %}
+        <a class="nav-link" href="/#hours"><li class="me-3">Hours</li></a>
+        <a class="nav-link" href="/#about-us"><li class="me-3">About Us</li></a>
+        <a class="nav-link" href="/#contact"><li class="me-3">Contact</li></a>
+        <a class="nav-link" href="/reviews/"><li class="me-3">Reviews</li></a>
+        {% endif %}
+    </ul>
+</div>
+
+<form class="w-50 mx-auto" action="/signup/" method="post" style="height: 100vh">
+    <h2 class="text-center">Sign Up</h2>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input class="form-control" id="username" name="username" type="text" maxlength="20" minlength="5" required>
+        {% if same_username %}
+        <small id="usernameHelp" class="ms-2 form-text text-danger">Username in use</small>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label for="password">Password (5 character min)</label>
+        <input class="form-control" id="password" name="password" type="password" minlength="5" maxlength="20" required>
+    </div>
+    <div class="form-group mt-1 mx-auto text-end">
+        <input class="btn btn-primary" type="submit" value="Sign up">
+        <a href="/" class="btn btn-primary">Home</a>
+    </div>
+</form>
+{% endblock%}

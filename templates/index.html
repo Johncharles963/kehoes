@@ -1,0 +1,223 @@
+{% extends 'base.html'%}
+{% block head %}
+<title>kehoe's Agate Shop</title>
+{% endblock %}
+
+{% block body %}
+<div id="nav-box" class="d-flex" style="z-index: 1; justify-content: space-between; background-color:#ebfbfa; width:100vw; position:fixed">
+    <div id="nav-img" style="width: 350px;">
+        <a href="/"><img class="img-fluid" src="{{url_for('static', filename='images/cover3Resize.png')}}"></a>
+    </div>
+    <div class="nav-list">
+        <ul class="d-flex me-5" style="align-items:end; padding: 0; justify-content: start; list-style: none;height: 45px;">
+            {% if current_user.is_authenticated %}
+            <a class="nav-link" href="/reviews/"><li class="me-3">Reviews</li></a>
+            <a class="nav-link" href="/logout/"><li class="me-3">Logout</li></a>
+            {% else %}
+            <a class="nav-link" href="/#hours"><li class="me-3">Hours</li></a>
+            <a class="nav-link" href="/#about-us"><li class="me-3">About Us</li></a>
+            <a class="nav-link" href="/#contact"><li class="me-3">Contact</li></a>
+            <a class="nav-link" href="/reviews/"><li class="me-3">Reviews</li></a>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+<div id="backup-nav" style="z-index: 1; position: fixed; top: 50px; right:0px; height:27px;">
+    <ul class="d-flex" style="padding: 0; justify-content: start; list-style: none;">
+        {% if current_user.is_authenticated %}
+        <a class="nav-link" href="/reviews/"><li class="me-3">Reviews</li></a>
+        <a class="nav-link" href="/logout/"><li class="me-3">Logout</li></a>
+        {% else %}
+        <a class="nav-link" href="/#hours"><li class="me-3">Hours</li></a>
+        <a class="nav-link" href="/#about-us"><li class="me-3">About Us</li></a>
+        <a class="nav-link" href="/#contact"><li class="me-3">Contact</li></a>
+        <a class="nav-link" href="/reviews/"><li class="me-3">Reviews</li></a>
+        {% endif %}
+    </ul>
+</div>
+<!--  OrNavBar
+<div class="row"  style="background-color: red;">
+    <div class="col-6" style="width: 350px;">
+        <img class="img-fluid" src="{{url_for('static', filename='images/cover3Resize.png')}}">
+    </div>
+    <div class="col-6 ms-auto me-2">
+        <nav class="navbar navbar-expand-lg">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav ms-auto">
+                <a class="nav-item nav-link active" href="#">Hours</a>
+                <a class="nav-item nav-link" href="#">Contact</a>
+                <a class="nav-item nav-link" href="#">Contanct</a>
+                <a class="nav-item nav-link disabled" href="#">Disabled</a>
+              </div>
+            </div>
+          </nav>
+    </div>
+</div>
+ -->
+<div class="text-center d-flex justify-content-center" style="height: 100vh; background-image: url({{url_for('static', filename='images/image-5dwlbs20.png')}})">
+    <div class="d-flex  flex-column justify-content-center">
+        <h1>"A little something for everyone..."</h1>
+        <p>- Heather Lopp</p>
+    </div>
+</div>
+<div class="mx-auto row text-center p-0"  style="margin-top: 20px; ">
+    <div id="diamond1" class="ms-auto col-md-2 col-sm-12 text-md-end">
+        <img class="img-fluid diamond" src="{{url_for('static', filename='images/diamond.png')}}">
+    </div>
+    <div class="col-md-6 col-sm-12 pt-3 ">
+        <img class="img-fluid fancy-line"  src="{{url_for('static', filename='images/line.png')}}">
+    </div>
+    <div id="diamond2" class="me-auto col-md-2 col-sm-12 ">
+        <img class="img-fluid diamond" src="{{url_for('static', filename='images/diamond.png')}}">
+    </div>  
+</div>
+
+<div class="text-center pb-5 pt-4" style="background-color: #eee9aa ;margin-top: 20px; margin-bottom: 20px;">
+    <h2 class="titles">Jewerly</h2>
+    <div class="row mx-auto" style="width: 95%;">
+        <div class="col-md-4 col-sm-12">
+            <img class="img-fluid rounded-1 jewelry" src="{{url_for('static', filename='images/ring1.jpg')}}">
+        </div>
+        <div class="col-md-4 col col-sm-12">
+            <img class="img-fluid rounded-1 jewelry" src="{{url_for('static', filename='images/heart1.jpg')}}">
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <img class="img-fluid rounded-1 jewelry" src="{{url_for('static', filename='images/earring2.jpg')}}">
+        </div>
+    </div>
+</div>
+
+<div class="mx-auto row text-center p-0"  style="margin-top: 20px; ">
+    <div id="diamond1" class="ms-auto col-md-2 col-sm-12 text-md-end">
+        <img class="img-fluid diamond" src="{{url_for('static', filename='images/diamond.png')}}">
+    </div>
+    <div class="col-md-6 col-sm-12 pt-3 ">
+        <img class="img-fluid fancy-line"  src="{{url_for('static', filename='images/line.png')}}">
+    </div>
+    <div id="diamond2" class="me-auto col-md-2 col-sm-12 ">
+        <img class="img-fluid diamond" src="{{url_for('static', filename='images/diamond.png')}}">
+    </div>  
+</div>
+
+<div class="text-center pb-5 pt-4" style="background-color:#e9aaee ; margin-top: 20px; margin-bottom: 20px;">
+    <h2 class="titles">Agates</h2>
+    <div class="row mx-auto" style="width: 95%">
+        <div  class="col">
+            <img class="img-fluid rounded-1" src="{{url_for('static', filename='images/agate1.jpg')}}">
+        </div>
+        <div class="col">
+            <img class="img-fluid rounded-1" src="{{url_for('static', filename='images/agate2.jpg')}}">
+        </div>
+        <div class="col">
+            <img class="img-fluid rounded-1" src="{{url_for('static', filename='images/agate5.jpg')}}">
+        </div>
+    </div>
+</div>
+
+<div class="mx-auto row text-center p-0"  style="margin-top: 20px; ">
+    <div id="diamond1" class="ms-auto col-md-2 col-sm-12 text-md-end">
+        <img class="img-fluid diamond" src="{{url_for('static', filename='images/diamond.png')}}">
+    </div>
+    <div class="col-md-6 col-sm-12 pt-3 ">
+        <img class="img-fluid fancy-line"  src="{{url_for('static', filename='images/line.png')}}">
+    </div>
+    <div id="diamond2" class="me-auto col-md-2 col-sm-12 ">
+        <img class="img-fluid diamond" src="{{url_for('static', filename='images/diamond.png')}}">
+    </div>  
+</div>
+
+<div class="text-center pb-5 pt-4 " style="background-color: #eee9aa ;margin-top: 20px; margin-bottom: 20px;">
+    <h2 class="titles">Decor</h2>
+    <div class="row mx-auto" style="width: 95%">
+        <div  class="col-md-4 col-sm-12">
+            <img class="img-fluid rounded-1 jewelry" src="{{url_for('static', filename='images/fish.jpg')}}">
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <img class="img-fluid rounded-1 jewelry" src="{{url_for('static', filename='images/bird.jpg')}}">
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <img class="img-fluid rounded-1 jewelry" src="{{url_for('static', filename='images/shell.jpg')}}">
+        </div>
+    </div>
+    <header id="hours"></header>
+</div>
+
+<div class="mx-auto row text-center p-0"  style="margin-top: 20px; ">
+    <div class="col-md-6 mx-auto col-sm-12 pt-3 ">
+        <img class="img-fluid fancy-line"  src="{{url_for('static', filename='images/line.png')}}">
+    </div>
+</div>
+
+<div class="row mb-5"  style="margin-top: 20px;">
+    <div class="col-sm-6 col-md-4 mx-auto text-center">
+        <h3 class="titles">Hours</h3>
+        <ul class="list-group list-group-flush border rounded">
+            <li  class="list-group-item">Sunday: Closed</li>
+            <li  class="list-group-item">Monday: Closed</li>
+            <li  class="list-group-item">Tuesday: 10Am - 5PM</li>
+            <li  class="list-group-item">Wednesday: 10Am - 5PM</li>
+            <li  class="list-group-item">Thursday: 10Am - 5PM</li>
+            <li  class="list-group-item">Friday: 10Am - 5PM</li>
+            <li  class="list-group-item">Saturday: 10Am - 5PM</li>
+        </ul>
+    </div>
+    <header id="about-us"></header>
+</div>
+
+<div class="mx-auto row text-center p-0"  style="margin-top: 20px; ">
+    <div class="col-md-6 mx-auto col-sm-12 pt-3 ">
+        <img class="img-fluid fancy-line"  src="{{url_for('static', filename='images/line.png')}}">
+    </div>
+</div>
+
+<div class="row rounded w-75 mx-auto p-3" style="background-color:#efc2f2; margin-top: 50px; margin-bottom: 100px;">
+    <h3 class="text-center titles">About Us!</h3>
+    <div class="col-md-10 col-sm-12 mx-auto text-center">
+        <p>Kehoe’s is a family owned and operated jewelry store located in the beautiful Flathead valley of northwest Montana. The shop is a unique blend of a fine jewelry store and a rock shop. It was started in the early 1930’s by Jack Kehoe, a man with enough vision and determination to establish a business making jewelry and cutting Montana agate during the height of the great depression.</p>
+    </div>
+    <div class="w-100"></div>
+    <div class="col-md-10 col-sm-12 mx-auto text-center">
+        <p>From the past to the present, this tradition continues today. Kehoe’s still sells Montana agate along with beautiful jewelry in gold, platinum and sterling silver, all set with colorful gemstones. We specialize in Montana’s famous cornflower blue Yogo sapphire, as well as, the sapphire found in the Philipsburg area. A wide variety of natural stone carvings, petrified wood bookends, minerals and fossils from around the world can also be found in the store. We hope you can visit us in Montana one day soon. </p>
+    </div>
+    <header id="contact"></header>
+</div>
+
+<div class="row text-center mx-auto contact" style="margin-top: 50px; margin-bottom: 50px; width: 90%;">
+    <h3 class="text-center mb-4 titles">Contact</h3>
+    <div class="col-md-4 col-sm-12 p-2">
+        <div class="p-3 rounded contact-item"  >
+            <div class="mt-2">
+                <img class="img-fluid fancy-line"  src="{{url_for('static', filename='images/gps.png')}}">
+            </div>
+            <h4>Address</h4>
+            <a target="_blank" href="https://www.google.com/maps/place/Kehoe's+Agate+Shop/@48.0830328,-114.1137572,17z/data=!4m12!1m6!3m5!1s0x5367ad587afbeb71:0x72f5524510a68482!2sKehoe's+Agate+Shop!8m2!3d48.0830357!4d-114.1115528!3m4!1s0x5367ad587afbeb71:0x72f5524510a68482!8m2!3d48.0830357!4d-114.1115528">1020 Holt Drive, Bigfork, MT 59911</a>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 p-2">
+        <div class="p-3 rounded contact-item"  >
+            <div class="mt-2">
+                <img class="img-fluid fancy-line"  src="{{url_for('static', filename='images/phone.png')}}">
+            </div>
+            <h4>Phone</h4>
+            <a href="tel:406-837-4467">406-837-4467</a>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 p-2">
+        <div class="p-3 rounded contact-item"  >
+            <div class="mt-2">
+                <img class="img-fluid fancy-line"  src="{{url_for('static', filename='images/mail.png')}}">
+            </div>
+            <h4 >Email</h4>
+            <a href="mailto: kehoes11@centurytel.net">kehoes11@centurytel.net</a>
+        </div>
+    </div>
+</div>
+<div class="contacts row mx-auto text-center mb-5">
+    <div class="col-6 ">
+        <a class="contact-link fs-2" href="https://www.facebook.com/KehoesAgateShop/" target="_blank">Facebook</a>
+    </div>
+    <div class="col-6">
+        <a class="contact-link fs-2" target="_blank" href="https://www.instagram.com/kehoesagateshop/?hl=en">Instagram</a>
+    </div>
+</div>
+{% endblock %}
